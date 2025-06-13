@@ -83,5 +83,5 @@ def merci():
     return "<h2 style='text-align:center;'>✅ Merci, vos réponses ont bien été enregistrées </h2>"
 
 if __name__ == "__main__":
-    app.run(debug=False, host="0.0.0.0", port=5000)
+    app.run(debug=False, host="0.0.0.0", port=10000)
 
