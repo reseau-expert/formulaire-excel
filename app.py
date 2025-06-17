@@ -4,7 +4,7 @@ import os
 from openpyxl import Workbook, load_workbook
 from datetime import datetime
 
-ZAPIER_WEBHOOK_URL = https://hooks.zapier.com/hooks/catch/23360947/uy09xop/"
+ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/23360947/uy09xop/"
 EXCEL_FILE = "reponses.xlsx"
 
 app = Flask(__name__)
