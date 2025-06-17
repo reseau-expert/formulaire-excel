@@ -1,140 +1,129 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Questionnaire Citoyen</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
+  <meta charset="UTF-8">
+  <title>Questionnaire Citoyen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
 
-        form {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
 
-        label {
-            display: block;
-            margin-top: 20px;
-            font-weight: bold;
-        }
+    h2 {
+      text-align: center;
+      color: #2b4cc2;
+      margin-bottom: 20px;
+    }
 
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
 
-        button {
-            margin-top: 30px;
-            padding: 14px 28px;
-            font-size: 18px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            max-width: 300px;
-        }
+    input[type="text"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+    textarea {
+      resize: vertical;
+    }
 
-        @media (max-width: 600px) {
-            button {
-                font-size: 20px;
-                padding: 16px 30px;
-            }
-        }
-    </style>
+    button {
+      margin-top: 25px;
+      width: 100%;
+      background-color: #2b4cc2;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1e3a99;
+    }
+  </style>
 </head>
 <body>
+  <form method="POST" action="/submit">
     <h2>Questionnaire Citoyen</h2>
-    <form action="/" method="post">
-        <label>Votre nom :</label>
-        <input type="text" name="nom">
 
-        <label>Votre prénom :</label>
-        <input type="text" name="prenom">
+    <label for="nom">Nom</label>
+    <input type="text" name="nom" id="nom" required>
 
-        <label>Votre adresse complète :</label>
-        <input type="text" name="adresse">
+    <label for="prenom">Prénom</label>
+    <input type="text" name="prenom" id="prenom" required>
 
-        <label>Votre ville :</label>
-        <input type="text" name="ville">
+    <label for="adresse">Adresse</label>
+    <input type="text" name="adresse" id="adresse" required>
 
-        <label>Votre code postal :</label>
-        <input type="text" name="code_postal">
+    <label for="code_postal">Code postal</label>
+    <input type="text" name="code_postal" id="code_postal" required>
 
-        <label>Dans quelle rue ou résidence habitez-vous ?</label>
-        <input type="text" name="rue">
+    <label for="quartier">Quartier</label>
+    <input type="text" name="quartier" id="quartier" required>
 
-        <label>Depuis combien de temps vivez-vous ici ?</label>
-        <input type="text" name="anciennete">
+    <label for="telephone">Téléphone</label>
+    <input type="tel" name="telephone" id="telephone" required>
 
-        <label>Qu’est-ce qui vous plaît le plus dans votre quartier ?</label>
-        <input type="text" name="qualites">
+    <label for="assister_evenements">Souhaitez-vous assister à des événements ?</label>
+    <select name="assister_evenements" id="assister_evenements" required>
+      <option value="">-- Choisir --</option>
+      <option value="Oui">Oui</option>
+      <option value="Non">Non</option>
+    </select>
 
-        <label>Si vous deviez améliorer UNE chose ici, ce serait quoi ?</label>
-        <input type="text" name="amelioration">
+    <label for="participer_evenements">Souhaitez-vous participer à des événements de quartier ?</label>
+    <select name="participer_evenements" id="participer_evenements" required>
+      <option value="">-- Choisir --</option>
+      <option value="Oui">Oui</option>
+      <option value="Non">Non</option>
+    </select>
 
-        <label>Quelle activité aimeriez-vous faire dans le quartier ?</label>
-        <input type="text" name="activite">
+    <label for="intervenir_voisins">Souhaitez-vous intervenir pour les besoins des voisins ?</label>
+    <select name="intervenir_voisins" id="intervenir_voisins" required>
+      <option value="">-- Choisir --</option>
+      <option value="Oui">Oui</option>
+      <option value="Non">Non</option>
+    </select>
 
-        <label>Quel type d’événements vous plairait ?</label>
-        <input type="text" name="evenements">
+    <label for="rejoindre_ga">Souhaitez-vous rejoindre un Groupe d’Action (GA) ?</label>
+    <select name="rejoindre_ga" id="rejoindre_ga" required>
+      <option value="">-- Choisir --</option>
+      <option value="Oui">Oui</option>
+      <option value="Non">Non</option>
+    </select>
 
-        <label>Souhaitez-vous donner votre avis sur les projets ?</label>
-        <input type="text" name="avis">
+    <label for="commentaire">Commentaire</label>
+    <textarea name="commentaire" id="commentaire" rows="3" placeholder="Votre message libre..."></textarea>
 
-        <label>Qui dans votre entourage serait intéressé ?</label>
-        <input type="text" name="groupe">
-
-        <label>Faites-vous partie d’un groupe local ?</label>
-        <input type="text" name="reseau">
-
-        <label>Connaissez-vous des personnes isolées à aider ?</label>
-        <input type="text" name="aider">
-
-        <label>Comment préférez-vous recevoir les infos ?</label>
-        <input type="text" name="communication">
-
-        <label>Jeunes : Que manque-t-il pour vous ?</label>
-        <input type="text" name="jeunes">
-
-        <label>Seniors : Qu’est-ce qui faciliterait votre quotidien ?</label>
-        <input type="text" name="seniors">
-
-        <label>Si on organisait une journée “quartier idéal”, que proposeriez-vous ?</label>
-        <input type="text" name="quartier_ideal">
-
-        <label>Votre numéro de téléphone :</label>
-        <input type="text" name="telephone">
-
-        <label>Votre adresse email :</label>
-        <input type="email" name="email">
-
-        <label>Commentaire du résident :</label>
-        <textarea name="commentaire_resident" rows="3"></textarea>
-
-        <label>Commentaire du prospecteur :</label>
-        <textarea name="commentaire_prospecteur" rows="3"></textarea>
-
-        <button type="submit">Envoyer</button>
-    </form>
+    <button type="submit">Envoyer</button>
+  </form>
 </body>
 </html>
